@@ -1,0 +1,12 @@
+{
+  "type": "object",
+  "properties": {
+    "blah": {
+      "type": "string"
+    },
+    "version": {
+      "type": "string",
+      "default": "v1.0.0"
+    }
+  }
+}
