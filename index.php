@@ -4,48 +4,28 @@
 	use JsonSchema\Validator;
 	use JsonSchema\Constraints\Constraint;
 
-	$content = [
-		0 => [
-			'vorname' => 'Stephan',
-			'name' => 'Krauss',
-			'alter' => 60
-		],
-		[
-			'vorname' => 'Antje',
-			'name' => 'Krauss',
-			'alter' => 59
-		]
-	];
+	$fileContent = file_get_contents('example/'.'example.json');
+	$fileContent = json_decode($fileContent);
 
-	var_dump($content);
-	exit();
-
-	$jsonContent = json_encode($content);
-
-	// $fileContent = file_get_contents('config.json');
-	// $config = json_decode($fileContent);
-
-	$config = json_decode($jsonContent);
+	$schemaContent = file_get_contents('example/'.'example_schema.json');
+	$schemaContent = json_decode($schemaContent);
 
 	$validator = new Validator;
 
 	$validator->validate(
-	  $config,
-	  (object)['$ref' => 'file://' . realpath('array_schema.json')],
+		$fileContent,
+		$schemaContent,
 	  Constraint::CHECK_MODE_APPLY_DEFAULTS
 	);
 
 	if ($validator->isValid()) {
 	  echo "JSON validates OK\n";
 	}
-	else {
-	  echo "JSON validation errors:\n";
+	else
+	{
+		echo "JSON validation errors:\n";
 
-	  foreach ($validator->getErrors() as $error) {
-	    print_r($error);
-	  }
+		foreach ($validator->getErrors() as $error) {
+			print_r($error);
+		}
 	}
-
-	print "\nResulting config:\n";
-
-	print_r($config);

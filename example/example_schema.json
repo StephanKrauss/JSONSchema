@@ -5,8 +5,7 @@
       "type": "string"
     },
     "version": {
-      "type": "string",
-      "default": "v1.0.0"
+      "type": "string"
     }
   }
 }
