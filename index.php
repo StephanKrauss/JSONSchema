@@ -4,10 +4,10 @@
 	use JsonSchema\Validator;
 	use JsonSchema\Constraints\Constraint;
 
-	$fileContent = file_get_contents('example/'.'example.json');
+	$fileContent = file_get_contents('example/'.'example_array.json');
 	$fileContent = json_decode($fileContent);
 
-	$schemaContent = file_get_contents('example/'.'example_schema.json');
+	$schemaContent = file_get_contents('example/'.'example_array_schema.json');
 	$schemaContent = json_decode($schemaContent);
 
 	$validator = new Validator;

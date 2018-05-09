@@ -1,11 +1,11 @@
 {
   "type": "object",
   "properties": {
-    "blah": {
+    "bla": {
       "type": "string"
     },
     "blub": {
-      "type": "string"
+      "type": "array"
     }
   }
 }

@@ -1,0 +1,6 @@
+{
+  "bla": "aaa",
+  "blub": ["bbb","ccc","ddd"],
+  "foo": "eee",
+  "bar": 123
+}
